@@ -11,10 +11,10 @@ use HttpPHP\Payload\Contracts\PayloadContract;
 interface MessageContract
 {
     /**
-     * @param mixed|null $payload
+     * @param null|PayloadContract $payload
      * @return MessageContract
      */
-    public static function make(mixed $payload = null): MessageContract;
+    public static function make(null|PayloadContract $payload = null): MessageContract;
 
     /**
      * @return PayloadContract|null

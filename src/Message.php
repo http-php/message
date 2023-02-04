@@ -9,29 +9,30 @@ use HttpPHP\Headers\Header;
 use HttpPHP\Messages\Contracts\MessageContract;
 use HttpPHP\Messages\Exceptions\HeaderNotPresentException;
 use HttpPHP\Payload\Contracts\PayloadContract;
-use HttpPHP\Payload\Payload;
 
 final class Message implements MessageContract
 {
     /**
-     * @param array<string,HeaderContract> $headers
+     * @param array<int,HeaderContract> $headers
      */
     public function __construct(
-        private null|PayloadContract $payload = null,
+        private readonly null|PayloadContract $payload = null,
         private array $headers = [],
     ) {
     }
 
     /**
+     * @param null|PayloadContract $payload
+     * @param array<int,HeaderContract> $headers
      * @return MessageContract
      */
-    public static function make(mixed $payload = null): MessageContract
-    {
+    public static function make(
+        null|PayloadContract $payload = null,
+        array $headers = [],
+    ): MessageContract {
         return new Message(
-            payload: Payload::make(
-                body: $payload,
-            ),
-            headers: [],
+            payload: $payload,
+            headers: $headers,
         );
     }
 

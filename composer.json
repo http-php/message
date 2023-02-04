@@ -22,14 +22,14 @@
         }
     },
     "require": {
-        "php": "^8.1",
+        "php": "^8.2",
         "http-php/headers": "dev-main",
         "http-php/payload": "dev-main"
     },
     "require-dev": {
-        "laravel/pint": "^1.0",
-        "pestphp/pest": "^1.21",
-        "phpstan/phpstan": "^1.8"
+        "laravel/pint": "^1.4.1",
+        "pestphp/pest": "^1.22.4",
+        "phpstan/phpstan": "^1.9.14"
     },
     "scripts": {
         "test": "./vendor/bin/pest",
