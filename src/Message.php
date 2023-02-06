@@ -13,7 +13,8 @@ use HttpPHP\Payload\Contracts\PayloadContract;
 final class Message implements MessageContract
 {
     /**
-     * @param array<int,HeaderContract> $headers
+     * @param null|PayloadContract $payload
+     * @param array<int|string,HeaderContract> $headers
      */
     public function __construct(
         private readonly null|PayloadContract $payload = null,
@@ -23,7 +24,7 @@ final class Message implements MessageContract
 
     /**
      * @param null|PayloadContract $payload
-     * @param array<int,HeaderContract> $headers
+     * @param array<int|string,HeaderContract> $headers
      * @return MessageContract
      */
     public static function make(
@@ -73,7 +74,7 @@ final class Message implements MessageContract
     }
 
     /**
-     * @return array<string,HeaderContract>
+     * @return array<int|string,HeaderContract>
      */
     public function headers(): array
     {

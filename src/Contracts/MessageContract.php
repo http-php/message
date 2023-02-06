@@ -36,7 +36,7 @@ interface MessageContract
     public function header(string $key): HeaderContract;
 
     /**
-     * @return array<string,HeaderContract>
+     * @return array<int|string,HeaderContract>
      */
     public function headers(): array;
 }
